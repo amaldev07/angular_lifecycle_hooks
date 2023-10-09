@@ -1,0 +1,5 @@
+Name : <input type="text" [(ngModel)]="name">
+<br>
+Age : <input type="text" [(ngModel)]="age">
+<app-on-change [name]="name" [age]="age"></app-on-change>
+<button (click)="doChange()">Set</button>
