@@ -1,0 +1,61 @@
+Constructor
+ngonchanges
+ngonint
+ngDoCheck
+---------------------
+Constructor
+
+this will hit when the instance of the component is created 
+before ng on changes 
+-------------------------------------
+ngOnChanges
+
+triggers when anyof the input property value chages
+ngOnChanges(changes: any) {
+    for (const propName in changes) {
+      const chng = changes[propName];
+      const cur = JSON.stringify(chng.currentValue);
+      const prev = JSON.stringify(chng.previousValue);
+    }
+  }
+
+in changes we will get the previous and currect value
+lets say we have 2 inputs
+name and
+age
+if any one change only that only will get in the ngOnchange changes value, other value wont be there
+if both changes both will be there in changes variable
+
+----------------------------------------------------------------------------------
+
+ngonint
+this will trigger after the first ngonint
+
+that menas it will only trigger 
+Angular first displays the data-bound properties and 
+sets the directive or component's input properties(i.e after ngonchanges).
+
+ngonchanges will trigger again when inout value changes
+but that time ng onit wont again trigger
+
+--
+ngonint trigger after getting the initial input values via ngonchanges
+thats why we are writting api calls which need to be fored when the compoennt get loadeed in ngonint
+instead of constructor
+
+--------------------------------------------------------------
+ngDoCheck
+
+It invokes when the change detector of the given component is invoked
+this lifecycle hook will get triggerd
+when any input chnages +
+for any other action that ngOnChanges can not catch eg : focus on field, click outside etc
+
+Detect/trigger  upon changes that Angular can't detect on its own.
+--
+we can Defining custom change detection using this ngDoCheck()
+
+if (this.hero.name !== this.oldHeroName) { 
+    this.nameHistory.push(this.hero.name); 
+  }
+
