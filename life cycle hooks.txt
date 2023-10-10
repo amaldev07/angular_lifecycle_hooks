@@ -2,6 +2,13 @@ Constructor
 ngonchanges
 ngonint
 ngDoCheck
+ngAfterContentInit:
+ngAfterContentChecked
+ngAfterViewInit
+ngAfterViewChecked
+ngOnDestroy
+
+
 ---------------------
 Constructor
 
